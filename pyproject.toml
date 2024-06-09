@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "invoiceocr"
+version = "0.1.0"
+description = ""
+authors = ["TinyMurky <murky0830@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "app", from = "src" },
+    { include = "data", from = "src" },
+    { include = "scripts", from = "src" },
+    { include = "notebooks", from = "src" },
+    { include = "config", from = "src" },
+    { include = "tests", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytest = "^8.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
