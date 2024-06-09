@@ -6,10 +6,7 @@ authors = ["TinyMurky <murky0830@gmail.com>"]
 readme = "README.md"
 packages = [
     { include = "app", from = "src" },
-    { include = "data", from = "src" },
     { include = "scripts", from = "src" },
-    { include = "notebooks", from = "src" },
-    { include = "config", from = "src" },
     { include = "tests", from = "src" },
 ]
 
