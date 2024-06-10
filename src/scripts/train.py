@@ -68,18 +68,27 @@ def get_label_from_training_data(dataset: Dataset) -> list:
         "uid": "640a0301a1cb24331748b579405502b44d6791883b25ea0eafc8a68126ccdadd",
         "document": [
             "box": [104, 114, 530, 175],
-            "text": "汇丰晋信",
+            "text": "滙豐晉信",
             "label": "other",
             "words": [
-                {"box": [110, 117, 152, 175], "text": "汇"},
-                {"box": [189, 117, 229, 177], "text": "丰"},
-                {"box": [385, 117, 426, 177], "text": "晋"},
+                {"box": [110, 117, 152, 175], "text": "匯"},
+                {"box": [189, 117, 229, 177], "text": "豐"},
+                {"box": [385, 117, 426, 177], "text": "晉"},
                 {"box": [466, 116, 508, 177], "text": "信"}
             ],
         "linking": [],
         "id": 1
     }
     """
+    unique_labels = set()
+    for data in dataset:
+        documents = data["document"]
+        for document in documents:
+            if "label" not in document:
+                continue
+            label = document["label"]
+            unique_labels.add(label)
+    return list(unique_labels)
 
 
 def load_processor_from_hugging_face(config: dict) -> AutoProcessor:
@@ -113,6 +122,7 @@ def start() -> None:
     config = load_config_yaml()
 
     dataset = load_training_data(config)
-    processor = load_processor_from_hugging_face(config)
-
     print(dataset)
+    processor = load_processor_from_hugging_face(config)
+    labels = get_label_from_training_data(dataset)
+    print(labels)
