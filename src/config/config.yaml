@@ -1,0 +1,7 @@
+data:
+  train:
+    image_dir: ./src/data/train/zh.train
+    label_json: ./src/data/train/zh.train.answer.json
+  validate:
+    image_dir: ./src/data/validate/zh.validate
+    label_json: ./src/data/validate/zh.validate.answer.json

@@ -8,11 +8,21 @@ packages = [
     { include = "app", from = "src" },
     { include = "scripts", from = "src" },
     { include = "tests", from = "src" },
+    { include = "logging", from = "src" },
 ]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+torch = "^2.3.1"
+transformers = "^4.41.2"
+datasets = "^2.19.2"
+pyyaml = "^6.0.1"
+
+[tool.poetry.dev-dependencies]
 pytest = "^8.2.2"
+
+[tool.poetry.scripts]
+train = "scripts.train:start"
 
 
 [build-system]
