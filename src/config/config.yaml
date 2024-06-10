@@ -1,7 +1,11 @@
 data:
   train:
     image_dir: ./src/data/train/zh.train
-    label_json: ./src/data/train/zh.train.answer.json
+    label_json: ./src/data/train/zh.tradition.train.json
+    field_to_load: "document"
   validate:
     image_dir: ./src/data/validate/zh.validate
     label_json: ./src/data/validate/zh.validate.answer.json
+    field_to_load: "document"
+model:
+  pre_train_model_from_hugging_face: "microsoft/layoutlmv3-base"

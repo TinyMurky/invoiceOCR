@@ -1,3 +1,8 @@
+"""
+This is for logger
+You can new logger in log_config.yaml
+"""
+
 import logging
 import logging.config
 import os
