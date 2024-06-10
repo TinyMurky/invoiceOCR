@@ -82,13 +82,15 @@ def get_label_from_training_data(dataset: Dataset) -> list:
     """
     unique_labels = set()
     for data in dataset:
-        documents = data["document"]
+        documents = data["document"]  # type: ignore
         for document in documents:
             if "label" not in document:
                 continue
             label = document["label"]
             unique_labels.add(label)
-    return list(unique_labels)
+    label_list = list(unique_labels)
+    label_list.sort()
+    return label_list
 
 
 def load_processor_from_hugging_face(config: dict) -> AutoProcessor:
